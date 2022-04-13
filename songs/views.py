@@ -6,6 +6,10 @@ from .serializers import SongSerializer
 from .models import Song
 from songs import serializers
 
+#def LikeView(request, pk):
+#    song = get_object_or_404(Song, id=request.data)
+#    song.likes.add(request.user)
+    
 
 @api_view(['GET','POST'])
 def music_list(request):

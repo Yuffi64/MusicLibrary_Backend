@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'libraries',
     'rest_framework',
     'songs',
+    'corsheaders',
+    
     
 ]
 
@@ -49,6 +51,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    # 'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'music_library.urls'
@@ -118,8 +122,15 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# CORS_ALLOWED_ORIGINS = [
+#     'http://localhost:8000',
+# ]
+CORS_ORIGIN_ALLOW_ALL = True
+
 
 try:
     from music_library.local_settings import *
 except ImportError:
     pass
+
+APPEND_SPLASH = False
